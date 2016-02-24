@@ -3,19 +3,20 @@ const twoResourcesApp = angular.module('twoResourcesApp', []);
 require('./services/resources_service')(twoResourcesApp);
 require('./services/resource_store')(twoResourcesApp);
 
-twoResourcesApp.controller('MoviesController',['$scope', '$http', 'twoResource', 'resourceStore', function($scope, $http, Resource, resourceStore) {
+twoResourcesApp.controller('MoviesController',['$scope', 'twoResource', function($scope, Resource) {
   $scope.movies = [];
 
   var movieService = Resource('/movies');
 
+//get all movies from api/movies resources
 $scope.getAllMovies = function() {
   movieService.getAll(function(err, res){
-    if(err) return console.log(err);
-    $scope.movies = res;
+    if(err) return console.log(err); //error
+    $scope.movies = res;  //success
   });
 };
 
-
+//create new movie post to api/movies resource
 $scope.createMovie = function(movie) {
   movieService.create(movie,function(err, res) {
     if(err) return console.log(err);

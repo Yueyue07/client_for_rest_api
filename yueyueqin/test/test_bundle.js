@@ -33736,7 +33736,7 @@
 	__webpack_require__(4)(twoResourcesApp);
 	__webpack_require__(5)(twoResourcesApp);
 
-	twoResourcesApp.controller('MoviesController',['$scope', '$http', 'twoResource', 'resourceStore', function($scope, $http, Resource, resourceStore) {
+	twoResourcesApp.controller('MoviesController',['$scope', 'twoResource', function($scope, Resource) {
 	  $scope.movies = [];
 
 	  var movieService = Resource('/movies');
