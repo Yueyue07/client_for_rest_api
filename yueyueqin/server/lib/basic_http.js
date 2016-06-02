@@ -19,5 +19,5 @@ module.exports = exports = function(req, res, next){
   }catch(e){
     console.log(e);
   }
-  return res.status(200).json({msg: 'user sign in could not verify'});
+  return res.status(400).json({msg: 'user sign in could not verify'});
 };
