@@ -18,7 +18,7 @@ authRouter.post('/signup', jsonParser, (req, res) => {
 
   if(!((req.body.password || '').length > 7)) return  res.status(400).json({msg: 'Please enter password larger than 7 characters'});
 
-  if (!(req.body.password === req.body.comfirmpassword)) return res.status(400).json( { msg: 'Passwords are not the same' } );
+  if (!(req.body.password === req.body.confirmation)) return res.status(400).json( { msg: 'Passwords are not the same' } );
 
 
   User.find({$or : [{'username':req.body.username},{'email':req.body.email}]}, (err, data) => {
